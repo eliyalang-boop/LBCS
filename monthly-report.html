@@ -1,0 +1,57 @@
+<!-- monthly-report.html - דוח חודשי (לוח שנה) -->
+<!DOCTYPE html> <!-- מגדיר שמדובר במסמך HTML5 -->
+<html lang="he"> <!-- השפה הראשית של הדף היא עברית -->
+<head>
+  <meta charset="utf-8"> <!-- קידוד UTF-8 כדי שתווים בעברית יוצגו נכון -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- עיצוב רספונסיבי לכל סוגי המסכים -->
+  <title>Monthly Report - LBCS</title> <!-- כותרת לשונית בדפדפן -->
+  <link rel="stylesheet" href="style.css"> <!-- חיבור ל-CSS חיצוני לעיצוב -->
+  <script defer src="script.js"></script> <!-- טעינת JavaScript לאחר טעינת ה-HTML -->
+</head>
+<body>
+  <!-- כותרת עליונה קבועה לכל הדפים -->
+  <header>
+    <img src="logo.png" alt="LBCS Logo" class="logo-image"> <!-- לוגו האתר -->
+
+    <!-- כפתור המבורגר למסכים קטנים -->
+    <div class="hamburger" id="hamburger"> <!-- אלמנט המבורגר עם מזהה -->
+      <span></span> <!-- פס ראשון -->
+      <span></span> <!-- פס שני -->
+      <span></span> <!-- פס שלישי -->
+    </div>
+
+    <!-- קישורים לניווט -->
+    <nav class="nav-links" id="nav-links"> <!-- מיכל הקישורים -->
+      <a href="home.html">Home</a> <!-- קישור לדף הבית -->
+      <a href="monthly-report.html">Monthly Report</a> <!-- קישור לדוח חודשי -->
+      <a href="contact.html">Contact</a> <!-- קישור לדף צור קשר -->
+      <a href="about.html">About</a> <!-- קישור לדף אודות -->
+      <a href="index.html">Logout</a> <!-- קישור ליציאה מהמערכת -->
+    </nav>
+  </header>
+
+  <!-- תוכן הדף המרכזי -->
+  <main>
+    <!-- כותרת חודשית -->
+    <h2 id="month-title" style="text-align:center; margin-top:20px; color:#ffffff;">
+      Monthly Report
+    </h2>
+
+    <!-- טבלת לוח שנה שתתמלא ב-JS -->
+    <table id="calendar-table" style="width:100%; border-collapse: collapse;"></table>
+
+    <!-- כפתור חזרה לדף הבית -->
+    <div style="text-align:center; margin-top:18px;">
+      <a class="button" href="home.html" 
+         style="text-decoration:none; background:white; color:#4B0082; padding:10px 16px; border-radius:8px;">
+         ← back to home page
+      </a>
+    </div>
+  </main>
+
+  <!-- תחתית הדף -->
+  <footer style="text-align:center; margin-top:20px;">
+    <p>© 2025 LBCS Project</p>
+  </footer>
+</body>
+</html>

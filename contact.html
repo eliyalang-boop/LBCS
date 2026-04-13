@@ -1,0 +1,173 @@
+<!-- contact.html - דף יצירת קשר עם כל שדות ה-INPUT הנדרשים -->
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="he"> <!-- עברית -->
+<head>
+  <meta charset="utf-8"> <!-- קידוד UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- רספונסיביות למסכים שונים -->
+  <title>Contact - LBCS</title> <!-- כותרת לשונית הדפדפן -->
+  <link rel="stylesheet" href="style.css"> <!-- קישור לקובץ CSS חיצוני לעיצוב -->
+  <script defer src="script.js"></script> <!-- טעינת קובץ JS חיצוני לאחר טעינת ה-HTML -->
+</head>
+
+<body> <!-- גוף הדף -->
+  <!-- כותרת עליונה קבועה לכל הדפים -->
+  <header> <!-- אזור עליון עם לוגו ותפריט ניווט -->
+    
+    <!-- לוגו -->
+    <img src="logo.png" alt="LBCS Logo" class="logo-image"> <!-- מציג תמונת לוגו -->
+
+    <!-- כפתור המבורגר למסכים קטנים -->
+    <div class="hamburger" id="hamburger"> <!-- קונטיינר של שלושת הפסים -->
+      <span></span> <!-- פס ראשון -->
+      <span></span> <!-- פס שני -->
+      <span></span> <!-- פס שלישי -->
+    </div>
+
+    <!-- קישורי ניווט -->
+    <nav class="nav-links" id="nav-links"> <!-- אזור קישורי תפריט -->
+      <a href="home.html">Home</a> <!-- קישור לדף הבית -->
+      <a href="monthly-report.html">Monthly Report</a> <!-- קישור לדוח חודשי -->
+      <a href="contact.html">Contact</a> <!-- קישור לדף צור קשר -->
+      <a href="about.html">About</a> <!-- קישור לדף אודות -->
+      <a href="index.html">Logout</a> <!-- קישור ליציאה מהמערכת -->
+      
+    </nav>
+  </header>
+
+  <main> <!-- אזור התוכן המרכזי -->
+    <!-- טופס בתוך כרטיס -->
+    <div class="form-card"> <!-- עיצוב כרטיס לבן לטופס -->
+      <h2 style="margin-top:0; text-align:center;">Contact Us</h2> <!-- כותרת טופס באמצע -->
+
+      <!-- טופס שליחת הודעה -->
+      <form id="contactForm"> <!-- טופס עם מזהה ייחודי -->
+        
+        <!-- שדה שם מלא -->
+        <label for="fullName">Full Name</label> <!-- תווית לשדה שם -->
+        <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" required> <!-- שדה טקסט חובה -->
+
+        <!-- שדה הודעה -->
+        <label for="message">Message</label> <!-- תווית לשדה הודעה -->
+        <textarea id="message" name="message" rows="4" placeholder="Write your message here" required></textarea> <!-- שדה הודעה ארוך -->
+
+        <!-- בחירת סוג משתמש -->
+        <p>User Type</p> <!-- טקסט תיאור -->
+        <label><input type="radio" name="userType" value="new" required> New Customer</label> <!-- לקוח חדש -->
+        <label><input type="radio" name="userType" value="existing"> Existing Customer</label> <!-- לקוח קיים -->
+
+        <!-- בחירת תחומי עניין -->
+        <p>Interests</p> <!-- כותרת קטגוריה -->
+        <label><input type="checkbox" name="interest" value="system"> LBCS System</label> <!-- מערכת -->
+        <label><input type="checkbox" name="interest" value="support"> Technical Support</label> <!-- תמיכה טכנית -->
+        <label><input type="checkbox" name="interest" value="updates"> Updates</label> <!-- עדכונים -->
+
+        <!-- בחירת נושא פנייה -->
+        <label for="topic">Inquiry Topic</label> <!-- תווית לרשימה -->
+        <select id="topic" name="topic" required> <!-- תפריט נפתח לנושא -->
+          <option value="">Select a topic...</option> <!-- ברירת מחדל ריקה -->
+          <option value="tech">Technical Support</option> <!-- תמיכה טכנית -->
+          <option value="general">General Question</option> <!-- שאלה כללית -->
+          <option value="feedback">Feedback</option> <!-- משוב -->
+        </select>
+
+        <!-- כפתור שליחה -->
+        <button type="submit">Send Message</button> <!-- כפתור שליחת טופס -->
+      </form>
+    </div>
+
+    <!-- טבלת פרטי קשר -->
+    <table> <!-- טבלה פשוטה להצגת פרטים -->
+      <tr><th>Email</th><th>Phone</th><th>Address</th></tr> <!-- כותרות עמודות -->
+      <tr><td>None</td><td>None</td><td>Israel</td></tr> <!-- נתוני טבלה -->
+    </table>
+
+    <!-- אזור קישורים לטכנולוגיות -->
+    <div class="tech-links"> <!-- מכיל את כל שלושת הקישורים -->
+      
+      <!-- Firebase -->
+      <div class="tech-item"> <!-- אלמנט בודד -->
+        <a href="https://firebase.google.com" target="_blank" class="tech-text">
+          Firebase <!-- טקסט הקישור -->
+        </a>
+        <br> <!-- ירידת שורה -->
+        <a href="https://firebase.google.com" target="_blank">
+          <img src="firebase-logo.jpg" alt="Firebase Logo" class="tech-image"> <!-- תמונת לוגו -->
+        </a>
+      </div>
+
+      <!-- Arduino -->
+      <div class="tech-item">
+        <a href="https://www.arduino.cc" target="_blank" class="tech-text">
+          Arduino <!-- שם החברה -->
+        </a>
+        <br>
+        <a href="https://www.arduino.cc" target="_blank">
+          <img src="arduino-logo.jpg" alt="Arduino Logo" class="tech-image"> <!-- תמונת לוגו -->
+        </a>
+      </div>
+
+      <!-- ESP32 -->
+      <div class="tech-item">
+        <a href="https://www.espressif.com" target="_blank" class="tech-text">
+          ESP32 <!-- שם המוצר -->
+        </a>
+        <br>
+        <a href="https://www.espressif.com" target="_blank">
+          <img src="esp32-logo.jpg" alt="ESP32 Logo" class="tech-image"> <!-- תמונת לוגו -->
+        </a>
+      </div>
+
+    </div> <!-- סוף אזור הקישורים -->
+  </main>
+
+  <footer> <!-- אזור תחתון של האתר -->
+    <p>© 2025 LBCS Project</p> <!-- טקסט זכויות יוצרים -->
+  </footer>
+  <!-- JS לטיפול בטופס ובתפריט צדדי -->
+  <script>
+    // הטופס עצמו
+    const contactForm = document.getElementById('contactForm'); // בוחר את הטופס לפי ה-id שלו
+
+    if (contactForm) { // בודק שהטופס קיים לפני שמאזין לו
+      contactForm.addEventListener('submit', function(e) { // מאזין לאירוע שליחה של הטופס
+        e.preventDefault(); // מונע רענון אוטומטי של הדף בעת שליחה
+
+        // קריאת ערכים מהשדות
+        const fullName = document.getElementById('fullName').value.trim(); // קורא את השם שהוזן ומסיר רווחים מיותרים
+        const message = document.getElementById('message').value.trim(); // קורא את ההודעה שהוזנה ומנקה רווחים
+        const topic = document.getElementById('topic').value; // שומר את הנושא שנבחר מהרשימה
+
+        // איסוף רדיו
+        const userType = document.querySelector('input[name="userType"]:checked'); // מאתר איזה סוג משתמש נבחר
+
+        // איסוף צ'קבוקסים
+        const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked')).map(cb => cb.value); // יוצר מערך של כל תחומי העניין שנבחרו
+
+        // בדיקה אם כל השדות הנדרשים מלאים
+        if (!fullName || !message || !topic || !userType) { // בודק אם חסר מידע
+          alert("אנא מלא/י את כל השדות המסומנים"); // מציג הודעת אזהרה אם יש שדות חסרים
+          return; // מפסיק את המשך הריצה
+        }
+
+        // שמירה לדוגמה ב-localStorage
+        const data = { fullName, message, topic, userType: userType.value, interests, date: new Date().toISOString() }; // יוצר אובייקט עם פרטי ההודעה כולל תאריך
+        let store = JSON.parse(localStorage.getItem('lbcs_messages') || '[]'); // קורא את ההודעות הקודמות מה-localStorage או יוצר מערך חדש
+        store.push(data); // מוסיף את ההודעה החדשה למערך
+        localStorage.setItem('lbcs_messages', JSON.stringify(store)); // שומר את המערך המעודכן בחזרה ב-localStorage
+
+        alert("תודה! ההודעה נשלחה בהצלחה (דמו)."); // מציג הודעה שהטופס נשלח
+        contactForm.reset(); // מאפס את כל השדות בטופס
+      });
+    }
+
+    // המבורגר - פתיחה/סגירה של תפריט צדדי במסכים קטנים
+    const hamburger = document.getElementById('hamburger'); // בוחר את אלמנט ההמבורגר
+    const navLinks = document.getElementById('nav-links'); // בוחר את רשימת הקישורים בתפריט
+
+    hamburger.addEventListener('click', () => { // מוסיף מאזין ללחיצה על ההמבורגר
+      navLinks.classList.toggle('open'); // מוסיף או מסיר את המחלקה 'open' לתפריט (פותח/סוגר)
+      hamburger.classList.toggle('active'); // מוסיף או מסיר את המחלקה 'active' להפעלת אנימציה על ההמבורגר
+    });
+  </script>
+</body>
+</html>

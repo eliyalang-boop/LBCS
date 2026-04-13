@@ -1,0 +1,62 @@
+<!DOCTYPE html> <!-- מגדיר שזהו מסמך HTML5 -->
+<html lang="he"> <!-- מציין שהשפה היא עברית -->
+<head>
+  <meta charset="utf-8"> <!-- קידוד UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- רספונסיביות -->
+  <title>Daily Report - LBCS</title> <!-- כותרת לשונית -->
+  <link rel="stylesheet" href="style.css"> <!-- חיבור ל-CSS חיצוני -->
+  <script defer src="script.js"></script> <!-- חיבור ל-JS הכללי -->
+</head>
+
+<body> <!-- גוף הדף מתחיל כאן -->
+
+  <!-- ---------- HEADER ---------- -->
+  <header> <!-- תפריט עליון -->
+    <img src="logo.png" alt="LBCS Logo" class="logo-image"> <!-- לוגו האתר -->
+
+    <!-- המבורגר למסכים קטנים -->
+    <div class="hamburger" id="hamburger"> <!-- אלמנט המבורגר -->
+      <span></span> <!-- פס ראשון -->
+      <span></span> <!-- פס שני -->
+      <span></span> <!-- פס שלישי -->
+    </div>
+
+    <!-- תפריט ניווט -->
+    <nav class="nav-links" id="nav-links">
+      <a href="home.html">Home</a> <!-- דף הבית -->
+      <a href="monthly-report.html">Monthly Report</a> <!-- דוח חודשי -->
+      <a href="contact.html">Contact</a> <!-- צור קשר -->
+      <a href="about.html">About</a> <!-- אודות -->
+      <a href="index.html">Logout</a> <!-- יציאה מהמערכת -->
+    </nav>
+  </header>
+
+  <!-- ---------- MAIN ---------- -->
+  <main>
+    <!-- כותרת התאריך של הדוח היומי -->
+    <h2 id="daily-report-date">
+  <!-- JS ימלא כאן את התאריך הנבחר -->
+</h2>
+
+
+    <!-- רשימת כניסות -->
+    <ul id="daily-list" class="daily-list" style="list-style:none; text-align:center; padding:0;">
+      <!-- JS ממלא את זמני הכניסות -->
+    </ul>
+
+    <!-- כפתור חזרה לדוח החודשי -->
+    <div style="text-align:center; margin-top:20px;">
+      <a class="button" href="monthly-report.html"
+         style="text-decoration:none; background:white; color:#4B0082; padding:10px 16px; border-radius:8px;">
+         ← back to monthly-report
+      </a>
+    </div>
+  </main>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    <p>© 2025 LBCS Project</p>
+  </footer>
+
+</body>
+</html>

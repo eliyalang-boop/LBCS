@@ -1,0 +1,75 @@
+<!-- about.html - דף אודות המוצר -->
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="he"> <!-- עברית -->
+<head>
+  <meta charset="utf-8"> <!-- קידוד UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- רספונסיביות למסכים שונים -->
+  <title>About - LBCS</title> <!-- כותרת לשונית -->
+  <link rel="stylesheet" href="style.css"> <!-- קישור ל-CSS חיצוני -->
+  <script defer src="script.js"></script> <!-- טעינת JS חיצוני -->
+</head>
+<body>
+  <!-- כותרת עליונה קבועה לכל הדפים -->
+  <header>
+    <!-- לוגו -->
+    <img src="logo.png" alt="LBCS Logo" class="logo-image"> <!-- שמירה על שם הקובץ logo.png -->
+
+    <!-- כפתור המבורגר למסכים קטנים -->
+    <div class="hamburger" id="hamburger"> <!-- container של פסי ההמבורגר -->
+      <span></span> <!-- פס ראשון -->
+      <span></span> <!-- פס שני -->
+      <span></span> <!-- פס שלישי -->
+    </div>
+
+    <!-- קישורים לניווט -->
+    <nav class="nav-links" id="nav-links"> <!-- רשימת קישורים -->
+      <a href="home.html">Home</a> <!-- קישור לדף הבית -->
+      <a href="monthly-report.html">Monthly Report</a> <!-- קישור לדוח חודשי -->
+      <a href="contact.html">Contact</a> <!-- קישור לדף צור קשר -->
+      <a href="about.html">About</a> <!-- קישור לדף אודות -->
+      <a href="index.html">Logout</a> <!-- יציאה מהמערכת -->
+    </nav>
+  </header>
+
+  <main>
+    <!-- כותרת מרכזית -->
+    <h1 style="text-align:center;">About LBCS</h1> <!-- כותרת אודות -->
+
+    <!-- פסקת הסבר -->
+    <p style="max-width:800px; margin:auto; text-align:center;">
+      The LBCS (Litter Box Cleaning System) is built on a regular litter box. Using a pressure sensor and an ultrasonic distance sensor, the system detects when a cat enters the box, and after a short stay of a few minutes, it initiates an automatic spot-cleaning operation. Additionally, the user can perform a full litter replacement at the press of a button through the companion app.
+
+The system is built on a regular litter box and includes a sifting tray mounted on a rail that moves along the box using a motor, a waste outlet for clumps filtered from the litter during spot-cleaning, a removable bottom for disposing of all used litter, and a funnel for fresh litter that is operated by the user through the app.
+
+The system operates in two modes:
+
+Automatic Spot-Cleaning: Using the pressure and ultrasonic sensors, the system detects the cat's entry, and after a brief delay of a few minutes, it drives the sifting tray along the rail, filtering waste from the litter and expelling it through the waste outlet.
+
+Full Litter Replacement: When the user selects this function via the companion app, the bottom of the litter box opens, allowing used litter to fall into a pull-out drawer beneath the box, which then closes. Once the bottom is closed, the funnel dispenses a predetermined amount of fresh litter back into the box. The funnel is a container that the user needs to refill periodically, providing a consistent amount of fresh litter each time.
+    </p>
+
+    <!-- אזור תמונות -->
+    <div style="display:flex; justify-content:center; gap:18px; margin-top:22px; flex-wrap:wrap;">
+      <img src="product1.jpg" alt="Product 1" style="width:320px; border-radius:10px;"> <!-- תמונה 1 -->
+      <img src="product2.jpg" alt="Product 2" style="width:320px; border-radius:10px;"> <!-- תמונה 2 -->
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 LBCS Project</p> <!-- זכויות יוצרים -->
+  </footer>
+
+  <!-- JS לטיפול בתפריט ההמבורגר -->
+  <script>
+    // בוחר את ההמבורגר ורשימת הקישורים
+    const hamburger = document.getElementById('hamburger'); // אלמנט ההמבורגר
+    const navLinks = document.getElementById('nav-links'); // רשימת הקישורים
+
+    // מאזין לאירוע לחיצה על ההמבורגר
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open'); // מוסיף/מסיר את המחלקה 'open' להפעלת תפריט צדדי
+      hamburger.classList.toggle('active'); // מחלקת active לשינוי צורה של ההמבורגר (אנימציה)
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+/* style.css - כללי לעיצוב האתר LBCS */
+
+/* עיצוב בסיסי לדף כולו */
+body {
+    font-family: Arial, sans-serif; /* קובע את הגופן לכל הדף */
+    background-color: #3c096c;      /* רקע סגול כהה לדף */
+    color: #ffffff;                 /* צבע טקסט לבן כברירת מחדל */
+    margin: 0;                      /* מסיר מרווח חיצוני מסביב לדף */
+    padding: 0;                     /* מסיר ריווח פנימי */
+    direction: rtl;                 /* כיוון טקסט מימין לשמאל */
+    min-height: 100vh;              /* דף לפחות בגובה המסך */
+    display: flex;                  /* מאפשר שימוש ב-flexbox לפריסה */
+    flex-direction: column;         /* סידור אנכי של אלמנטים */
+}
+
+/* שורת הניווט/כותרת עליונה */
+header {
+    display: flex;                  /* פריסת התוכן בשורה אופקית */
+    align-items: center;            /* יישור אנכי למרכיבי הכותרת */
+    justify-content: space-between; /* מרווח בין לוגו לניווט */
+    padding: 12px 20px;             /* ריווח פנימי לכותרת */
+    background: linear-gradient(90deg, #2a0744, #4b0073); /* רקע עם מעבר צבע */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* צל קל מתחת לכותרת */
+    position: relative;             /* כדי שהתפריט המופעל על ידי ההמבורגר יוכל להיות מוחבא */
+}
+
+/* לוגו */
+.logo-image {
+    height: 64px;                   /* גובה הלוגו */
+    width: auto;                     /* רוחב אוטומטי לפי גובה */
+    border-radius: 10px;             /* פינות מעוגלות */
+}
+
+/* כפתור המבורגר (להופיע רק בנייד) */
+.hamburger {
+    display: none;                   /* מוסתר כברירת מחדל */
+    flex-direction: column;          /* סידור שלושת הפסיקים בטור */
+    cursor: pointer;                 /* מצביע בעכבר מצביע על לחיצה */
+    gap: 5px;                        /* רווח בין הפסיקים */
+}
+
+.hamburger span {
+    display: block;                  /* כל פס קופסה */
+    height: 4px;                     /* עובי פס */
+    width: 28px;                      /* רוחב פס */
+    background-color: white;          /* צבע פס */
+    border-radius: 2px;               /* פינות מעוגלות */
+    transition: 0.3s;                 /* מעבר חלק להנפשה עתידית */
+}
+
+/* ניווט */
+nav {
+    display: flex;                  /* סידור הקישורים בשורה */
+    gap: 18px;                      /* ריווח בין הקישורים */
+    align-items: center;            /* יישור אנכי */
+}
+
+nav a {
+    color: white;                   /* צבע הקישורים לבן */
+    text-decoration: none;          /* אין קו תחתון */
+    font-weight: 700;               /* עובי כתב מודגש */
+    padding: 8px 12px;              /* ריווח פנימי לכל קישור */
+    border-radius: 8px;             /* פינות מעוגלות */
+    transition: background 0.2s, color 0.2s; /* אפקט מעבר חלק */
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.08); /* רקע קל בהרחפה */
+    color: #ffd6ff;                      /* שינוי צבע בהרחפה */
+}
+
+/* תוכן ראשי */
+main {
+    flex: 1;                         /* ממלא את המרחב הפנוי */
+    padding: 30px;                   /* ריווח פנימי מסביב לתוכן */
+    display: flex;                   /* שימוש ב-flexbox */
+    flex-direction: column;          /* סידור אנכי של התוכן */
+    align-items: center;             /* מרכז אופקי */
+}
+
+/* דף הבית - אזור הכפתורים */
+.home-container {
+    display: flex;              /* הפיכת המיכל למיכל Flex */
+    flex-direction: column;     /* מסדר את כל הכפתורים בטור אחד */
+    gap: 20px;                  /* רווח בין כל כפתור */
+    justify-content: center;    /* מרכז אנכי בתוך המיכל */
+    align-items: center;        /* מרכז אופקי בתוך המיכל */
+    width: 100%;                /* רוחב מלא למיכל */
+    max-width: 400px;           /* רוחב מקסימלי למיכל */
+}
+
+.home-container button {
+    background-color: white;          /* רקע לבן לכפתור */
+    color: #4B0082;                   /* צבע טקסט סגול כהה */
+    border: 2px solid #4B0082;       /* גבול מסביב לכפתור */
+    padding: 18px 30px;               /* ריווח פנימי גדול יותר */
+    width: 100%;                      /* הכפתור מתרחב לכל רוחב המיכל */
+    font-size: 18px;                  /* גודל טקסט גדול יותר */
+    border-radius: 12px;              /* פינות מעוגלות */
+    font-weight: 700;                 /* כתב מודגש */
+    cursor: pointer;                  /* מצביע בעכבר מצביע על לחיצה */
+    transition: transform 0.12s, background 0.2s, color 0.2s; /* מעבר חלק */
+}
+
+.home-container button:hover {
+    transform: translateY(-4px);      /* הרמה קלה בעת הרחפה */
+    background-color: #4B0082;        /* רקע סגול כהה */
+    color: white;                      /* טקסט לבן */
+}
+
+/* טפסים */
+.form-card {
+    background: white;                /* רקע לבן לכרטיס */
+    color: #3c096c;                   /* טקסט סגול כהה */
+    padding: 22px;                    /* ריווח פנימי */
+    border-radius: 14px;              /* פינות מעוגלות */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* צל לכרטיס */
+    width: 100%;                      /* רוחב מלא */
+    max-width: 520px;                 /* רוחב מקסימלי */
+}
+
+label {
+    display: block;                   /* מציג כל תווית בשורה חדשה */
+    margin-bottom: 6px;               /* ריווח למטה */
+    font-weight: 600;                 /* עובי כתב */
+}
+
+input[type="text"], input[type="password"], textarea, select {
+    width: 100%;                      /* רוחב מלא */
+    padding: 10px 12px;               /* ריווח פנימי */
+    margin-bottom: 12px;              /* ריווח למטה */
+    border: 1px solid #ddd;           /* גבול עדין */
+    border-radius: 8px;               /* פינות מעוגלות */
+    font-size: 15px;                  /* גודל כתב */
+}
+
+button[type="submit"] {
+    width: 100%;                       /* רוחב מלא */
+    padding: 12px;                     /* ריווח פנימי */
+    font-weight: 700;                  /* כתב מודגש */
+    border-radius: 10px;               /* פינות מעוגלות */
+    border: none;                      /* ללא גבול */
+    background: #4B0082;               /* רקע סגול כהה */
+    color: white;                      /* טקסט לבן */
+    cursor: pointer;                   /* מצביע בעכבר */
+}
+
+button[type="submit"]:hover {
+    background: #6a1b9a;               /* שינוי צבע רקע בעת הרחפה */
+}
+
+/* טבלאות */
+table {
+    width: 95%;                         /* רוחב הטבלה */
+    max-width: 1000px;                  /* רוחב מקסימלי */
+    border-collapse: collapse;          /* איחוד גבולות */
+    margin: 22px auto;                  /* מרכז אופקי עם מרווח עליונה ותחתונה */
+    background: white;                  /* רקע הטבלה */
+    color: #3c096c;                     /* צבע טקסט בתוך הטבלה */
+    border-radius: 10px;                /* פינות עגולות */
+    overflow: hidden;                   /* הסתרת גלילה פנימית */
+    font-size: 18px;                    /* גודל טקסט בתאים */
+}
+
+
+
+th, td {
+    padding: 20px 12px;                 /* ריווח פנימי גבוה ורחב */
+    border-bottom: 1px solid #eee;      /* גבול תחתון עדין */
+    text-align: center;                 /* יישור מרכזי */
+}
+
+th {
+    background: #4B0082;                /* רקע סגול כהה לכותרות */
+    color: white;                        /* טקסט לבן בכותרות */
+}
+
+/* יום נוכחי בלוח השנה */
+#calendar-table td.today {
+    background-color: #3c096c;          /* רקע סגול כהה */
+    color: white;                        /* טקסט לבן */
+    font-weight: 700;                    /* כתב מודגש */
+    border-radius: 6px;                  /* פינות מעוגלות */
+}
+
+/* דוח יומי - רשימה מפורטת */
+.daily-list {
+    width: 90%;                          /* רוחב הרשימה */
+    max-width: 600px;                     /* רוחב מקסימלי */
+    margin: 20px auto;                    /* מרכז אופקי עם מרווח למעלה ולמטה */
+    list-style: none;                     /* הסרת סמלי רשימה */
+    padding: 0;                            /* אין ריווח פנימי */
+}
+
+.daily-list li {
+    background: white;                    /* רקע לבן לכל שורה */
+    color: #3c096c;                       /* טקסט סגול כהה */
+    margin-bottom: 10px;                  /* ריווח בין שורות */
+    padding: 10px 14px;                   /* ריווח פנימי */
+    border-radius: 8px;                   /* פינות מעוגלות */
+    display: flex;                        /* פריסת תוכן פנימי בשורה */
+    justify-content: space-between;       /* מרווח בין אלמנטים פנימיים */
+    align-items: center;                  /* יישור אנכי */
+}
+
+/* מידות קטנות - התאמה לנייד */
+@media (max-width: 760px) {
+    .logo-image { height: 48px; }        /* לוגו קטן יותר לנייד */
+    .home-container { 
+        gap: 12px;                       /* פחות רווח בין הכפתורים */
+        width: 95%;                       /* כמעט כל רוחב המסך */
+        max-width: 400px;                 /* רוחב מקסימלי */
+    }    
+    .home-container button { 
+        width: 100%;                      /* כפתורים תופסים את כל רוחב המיכל */
+        padding: 22px 0;                  /* גובה גדול יותר, ריווח אנכי גדול */
+        font-size: 20px;                  /* טקסט גדול יותר */
+    }
+    .video-container { 
+  margin-top: 30px;  /* מוסיף רווח מעל הוידיאו, לא צמוד לכפתור */
+  text-align: center; /* ממרכז את הוידיאו בתוך הקונטיינר */
+}
+
+.video-container video { 
+  max-width: 100%; /* הופך את הוידיאו לרספונסיבי במסכים קטנים */
+  height: auto; /* שומר על פרופורציות הוידיאו */
+  border-radius: 8px; /* פינות מעוגלות לוידיאו */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* מוסיף צל קל לוידיאו */
+}
+
+    .daily-list li { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 6px; 
+    } /* עיצוב רשימה לנייד */
+    nav { gap: 10px; padding: 10px; }    
+    header { padding: 10px; } 
+    .hamburger { display: flex; }  /* הופעת ההמבורגר בנייד */
+    nav { 
+        display: none;               /* ההסתרה של הניווט הראשי עד ללחיצה */
+        flex-direction: column; 
+        position: absolute;          /* הופעה מעל התוכן */
+        top: 100%;                   /* מתחת לכותרת */
+        right: 0;
+        background: #4b0073;         /* רקע סגול כהה */
+        width: 200px; 
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        padding: 10px 0;
+        z-index: 10;
+    }
+    nav.open { display: flex; }      /* מצב פתוח אחרי לחיצה על ההמבורגר */
+    nav a { padding: 10px 16px; }    /* ריווח פנימי לנייד */
+}
+/* יום נוכחי בלוח השנה - רקע וטקסט הפוכים */
+#calendar-table td.today {
+    background-color: #4B0082;     /*רקע סגול כהה  */
+    color: white;              /* טקסט לבן */
+    font-weight: 700;            /* כתב מודגש */
+    border-radius: 6px;          /* פינות מעוגלות */
+    text-align: center;          /* יישור מרכזי */
+    transition: background 0.3s, color 0.3s; /* מעבר חלק אם משתנה */
+}
+
+/* מתי שהיום נבחר או על הרחפה */
+#calendar-table td.today:hover {
+    background-color: white;   /* רקע לבן בעת הרחפה */
+    color: #4B0082;                 /* כיתוב סגול כהה*/
+    cursor: pointer;              /* מצביע על לחיצה */
+}
+
+/* ---------- כותרת דוח יומי ---------- */
+#daily-report-date {
+    text-align: center;                       /* ממרכז את הכותרת */
+    margin-top: 20px;                         /* ריווח מעל הכותרת */
+    font-size: 24px;                          /* גודל גופן */
+    font-weight: 700;                         /* כתב מודגש */
+    color: #ffffff;                           /* צבע טקסט לבן */
+    background: linear-gradient(90deg, #6a1b9a, #9c27b0); /* רקע צבעוני */
+    padding: 12px 0;                          /* ריווח פנימי למעלה ולמטה */
+    border-radius: 8px;                       /* פינות מעוגלות */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);   /* צל קל */
+}
+
+
+/* עיצוב אזור הקישורים עם תמונות */
+.tech-links {
+  display: flex; /* מסדר את האלמנטים בשורה */
+  justify-content: center; /* ממרכז אותם */
+  gap: 40px; /* רווחים ביניהם */
+  margin-top: 40px; /* רווח מהאלמנט שמעל */
+  flex-wrap: wrap; /* במובייל זה ירד לשורות */
+}
+
+/* עיצוב כל קבוצה של אתר (כיתוב + תמונה) */
+.tech-item {
+  text-align: center; /* ממקם טקסט ותמונה במרכז */
+}
+
+/* עיצוב הטקסט של הקישור */
+.tech-text {
+  color: white; /* צבע טקסט */
+  font-size: 18px; /* גודל כיתוב */
+  text-decoration: none; /* בלי קו תחתון */
+  font-weight: bold;
+}
+
+/* עיצוב התמונה */
+.tech-image {
+  width: 80px; /* גודל רוחב */
+  height: auto; /* שמירת פרופורציות */
+  margin-top: 8px; /* רווח מהטקסט */
+  border-radius: 8px; /* פינות מעוגלות */
+  transition: transform 0.3s ease; /* אנימציה כשעוברים עם העכבר */
+}
+
+/* אפקט hover */
+.tech-image:hover {
+  transform: scale(1.1); /* הגדלה קלה במעבר עכבר */
+}
+
+.container {
+  width: 90%;
+  max-width: 420px;
+  margin: auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;   /* הכי חשוב! */
+}
+

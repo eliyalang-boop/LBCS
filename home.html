@@ -1,0 +1,177 @@
+<!-- index.html - דף הבית של LBCS -->
+<!DOCTYPE html> <!-- מציין שזו דף HTML5 -->
+<html lang="he"> <!-- שפת הדף היא עברית -->
+<head>
+  <meta charset="utf-8"> <!-- קידוד UTF-8 לתווים עבריים -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- רספונסיביות למכשירים שונים -->
+  <title>LBCS - Home</title> <!-- כותרת לשונית בדפדפן -->
+  <link rel="stylesheet" href="style.css"> <!-- קישור לקובץ CSS החיצוני -->
+
+<script defer src="script.js"></script> <!-- טעינת קובץ JS אחרי טעינת ה-HTML -->
+</head>
+<body>
+  <!-- כותרת עליונה קבועה לכל הדפים -->
+  <header>
+    <!-- לוגו האתר -->
+    <img src="logo.png" alt="LBCS Logo" class="logo-image"> <!-- לוגו, שמור בשם logo.png -->
+
+    <!-- כפתור המבורגר למסכים קטנים -->
+    <div class="hamburger" id="hamburger"> <!-- container לפסים של ההמבורגר -->
+      <span></span> <!-- פס עליון -->
+      <span></span> <!-- פס אמצעי -->
+      <span></span> <!-- פס תחתון -->
+    </div>
+
+    <!-- קישורים לניווט -->
+    <nav class="nav-links" id="nav-links"> <!-- רשימת קישורים -->
+      <a href="home.html">Home</a> <!-- דף הבית -->
+      <a href="monthly-report.html">Monthly Report</a> <!-- דוח חודשי -->
+      <a href="contact.html">Contact</a> <!-- צור קשר -->
+      <a href="about.html">About</a> <!-- אודות -->
+      <a href="index.html">Logout</a> <!-- יציאה מהמערכת -->
+    </nav>
+  </header>
+
+  <!-- תוכן מרכזי של דף הבית -->
+  <main>
+    <!-- אזור הכפתורים הראשיים כפי שהיה -->
+    <div class="home-container">
+      <button id="cleanBtn">Start Full Cleaning</button> <!-- כפתור לניקוי כללי -->
+     
+     <!-- <button id="reportBtn">View Monthly Report</button> -->  <!-- כפתור לדוח חודשי -->
+     <!-- <button id="contactBtn">Contact Us</button> -->  <!-- כפתור מעבר לדף צור קשר -->
+      <!-- <button id="logoutBtn">Logout</button>--> <!-- כפתור יציאה -->
+   
+
+  <!-- וידיאו מתחת לכפתור -->
+  <div class="video-container"> <!-- קונטיינר לעיצוב וסידור הוידיאו -->
+    <video width="640" height="360" controls loop autoplay muted> <!-- תג וידיאו עם כפתורי ניגון/עצירה/ווליום -->
+      <source src="video.mp4" type="video/mp4"> <!-- קובץ הוידיאו והפורמט שלו -->
+      הדפדפן שלך לא תומך בתג וידיאו. <!-- הודעה למקרה שהדפדפן לא מציג וידיאו -->
+    </video>
+  </div>
+</div>
+
+  </main>
+
+  <!-- תחתית הדף -->
+  <footer>
+    <p>© 2025 LBCS Project</p> <!-- טקסט זכויות יוצרים -->
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-database-compat.js"></script>
+  <script  src="script.js"></script>
+    
+<script>
+
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyCC83UEiQx1uASpDhm-_ortsvcBBbre8J4",
+  authDomain: "lbcs-1b1b6.firebaseapp.com",
+  databaseURL: "https://lbcs-1b1b6-default-rtdb.firebaseio.com",
+  projectId: "lbcs-1b1b6",
+  storageBucket: "lbcs-1b1b6.firebasestorage.app",
+  messagingSenderId: "898216398934",
+  appId: "1:898216398934:web:0f7adbd99271dd4bacabf7",
+  measurementId: "G-2ED8CXQDMD"
+};
+
+
+
+// מאתחל את ה-Firebase עם ההגדרות שנתנו
+const app = firebase.initializeApp(firebaseConfig);
+// יוצר משתנה 'db' שדרכו נבצע את כל פעולות הקריאה והכתיבה
+
+
+// --- חלק 3: פונקציות עזר ולוגיקה ---
+
+// פונקציה שיוצרת "הפסקה" של זמן (במילי-שניות) כדי שנוכל לחכות בין פעולות המנוע
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+let catWasInside = false;   // זיכרון אם היה חתול
+let isCleaning = false;   // נעילה – מונע שתי פעולות במקביל
+// מאזין ללחיצה על כפתור הניקוי ב-HTML (הפונקציה מוגדרת כ-async כדי שנוכל להשתמש ב-await להמתנה)
+document.getElementById('cleanBtn').addEventListener('click', async () => {
+if (isCleaning) return;   // אם כבר מנקה – לא עושה כלום
+isCleaning = true;        // מפעיל נעילה
+   
+  try {
+        console.log("בודק נתונים מהחיישנים...");
+
+        const snapshot = await firebase.database().ref('/fromAltera').get();
+        const data = snapshot.val();
+
+        if (data && data.A === 0 && data.B === 255) {
+
+            await firebase.database().ref('toAltera').set(1);
+            await delay(1000);  // השהייה של שנייה
+            await firebase.database().ref('toAltera').set(0);
+
+            alert("הניקוי הסתיים בהצלחה!");
+
+        } else {
+            alert("זהירות! זוהה חתול במכשיר או שאין חיבור לחיישנים.");
+        }
+
+    } catch (e) {
+        console.error("שגיאה בביצוע הפקודות:", e);
+        alert("אירעה שגיאה בחיבור לשרת.");
+    } finally{
+       isCleaning = false;   // משחרר נעילה בסיום
+    }
+   
+
+});
+
+
+
+async function autoCheckSensors() {
+  if (isCleaning) return;
+
+    try {
+        const snapshot = await firebase.database().ref('/fromAltera').get();
+        const data = snapshot.val();
+
+        if (!data) return;
+
+        // מצב 1: יש חתול בפנים
+        if (data.A !== 0 && data.B !== 255) {
+            console.log("חתול בפנים");
+            catWasInside = true;
+        }
+
+        // מצב 2: אין חתול כרגע, אבל קודם היה
+        if (catWasInside && data.A === 0 && data.B === 255) {
+            
+            console.log("החתול יצא - שולח 129");
+
+            // מחכה 2 שניות לוודא יציאה אמיתית
+            await delay(2000);
+
+            const checkAgain = await firebase.database().ref('/fromAltera').get();
+            const newData = checkAgain.val();
+
+            if (newData && newData.A === 0 && newData.B === 255) {
+                await firebase.database().ref('toAltera').set(129);
+                await delay(1000);  // השהייה של שנייה
+                await firebase.database().ref('toAltera').set(128);
+                catWasInside = false;  // מאפס זיכרון
+            }
+        }
+
+    } catch (error) {
+        console.error("שגיאה בבדיקת החיישנים:", error);
+    }
+    
+}
+
+// בדיקה כל שנייה
+setInterval(autoCheckSensors, 1000);
+
+
+  </script>
+  <!-- JS להפעלת ההמבורגר -->
+
+</body>
+</html>

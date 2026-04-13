@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>התחברות</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      direction: rtl;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container {
+      background: #fff;
+      width: 350px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 95%;
+      padding: 12px;
+      background: #0078ff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #005fcc;
+    }
+
+    .link-btn {
+      margin-top: 15px;
+      display: block;
+      text-decoration: none;
+      color: #0078ff;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+        <form class="w-60 mx-5">
+            <h1>הרשמה</h1>
+            
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+           
+            <div class="alert alert-danger" role="alert" id="error">
+              A simple danger alert—check it out!
+            </div>
+            <button type="button" class="btn btn-primary" onclick="sign()" >Submit</button>
+          
+          
+          </form>
+          <form class="w-60 mx-5">
+              <hr>
+            <h1>התחברות</h1>
+            <div class="mb-3">
+              <label for="emailLogIn" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="emailLogIn" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="passwordLogIn" class="form-label">Password</label>
+              <input type="password" class="form-control" id="passwordLogIn">
+            </div>
+            <div class="alert alert-danger" id="error" role="alert">
+                A simple danger alert—check it out!
+              </div>
+            <button type="button" class="btn btn-primary" onclick="logIn()" >Submit</button>
+          </form>
+      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-database-compat.js"></script>
+    
+    <script src="./main.js"></script>
+
+</body>
+</html>
